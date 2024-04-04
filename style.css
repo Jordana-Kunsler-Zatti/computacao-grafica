@@ -1,0 +1,21 @@
+
+.content{
+  width: 98vw;
+  height: 98vh;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons{
+  display: flex;
+  gap: 10px;
+}
+
+canvas{
+  width: 900px;
+  height: 450px;
+  border: 1px solid black;
+}
