@@ -1,0 +1,57 @@
+
+.content{
+  width: 98vw;
+  height: 98vh;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+hr{
+  border-top: 1px dashed #b8b8b8;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.wrapperCanvas canvas{
+  width: 900px;
+  height: 450px;
+  border: 1px solid black;
+}
+
+.wrapperCanvas{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: end;
+  justify-content: center;
+}
+
+.wrapperCanvas .buttons{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.direction{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.images{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 5px 25px;
+}
+
+.wrapperImage{
+  padding: 5px;
+}

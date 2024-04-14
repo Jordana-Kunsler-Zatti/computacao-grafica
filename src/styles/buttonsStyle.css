@@ -1,0 +1,106 @@
+
+.wrapperCanvas button{
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.btClear{
+   background-image:url('/public/lixeira.png');
+}
+
+.btIn{
+   background-image:url('/public/lupaMais.png');
+}
+
+.btOut{
+   background-image:url('/public/lupaMenos.png');
+}
+
+
+.buttons{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+/* imagens buttons */
+
+.images button{
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.wrapperImage:hover{
+  background-color: #ececec;
+  transition-duration: 0.5s;
+  border-radius: 05px;
+}
+
+.btCircle {
+  background-image:url('/public/circulo.png');
+}
+
+.btSquare {
+  background-image:url('/public/quadrado.png');
+}
+
+.btTriangle {
+  background-image:url('/public/triangulo.png');
+}
+
+.btRectangle {
+  background-image:url('/public/retangulo.png');
+}
+
+/* actions buttons */
+
+.direction div{
+  display: flex;
+  gap: 60px;
+}
+
+.direction button{
+  height: 50px;
+  width: 35px;
+  background-image:url('/public/seta.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.direction button:hover{
+  background-color: #ececec;
+  transition-duration: 0.5s;
+  border-radius: 05px;
+}
+
+.btUp{
+  transform: rotate(90deg);
+}
+
+.btRight{
+  transform: rotate(180deg);
+}
+
+.btDown{
+  transform: rotate(270deg);
+}
+
+/* color button */
+.colorPaint button{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #404040;
+}
+
+.colorPaint button:hover{
+ box-shadow: 0px 0px 4px 2px #a0a0a0
+}
+
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Teste</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/src/styles/style.css">
+  <link rel="stylesheet" href="/src/styles/colors.css">
+  <link rel="stylesheet" href="/src/styles/buttonsStyle.css">
+  <script src="index.js" type="text/javascript"></script>
+</head>
+<body>
+  <div class="content">
+    <div class="controls">
+      <div class="buttons">
+        IMAGENS:
+        <div class="images">
+          <div class="wrapperImage">
+            <button class="btCircle" onclick="drawCircle()"></button>
+          </div>
+          <div class="wrapperImage">
+            <button class="btSquare" onclick="drawSquare()"></button>
+          </div>
+          <div class="wrapperImage">
+            <button class="btTriangle" onclick="drawTriangle()"></button>
+          </div>
+          <div class="wrapperImage">
+            <button class="btRectangle" onclick="drawRectangle()"></button>
+          </div>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="buttons">
+        MOVIMENTAÇÃO:
+        <div class="direction">
+          <button class="btUp" onclick="move(event)"></button>
+          <div>
+            <button class="btLeft" onclick="move(event)"></button>
+            <button class="btRight" onclick="move(event)"></button>
+          </div>
+          <button class="btDown" onclick="move(event)"></button>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="buttons">
+        PREENCHIMENTO SÓLIDO:
+        <div class="colorPaint">
+          <button class="red" onclick="paint(event)"></button>
+          <button class="blue" onclick="paint(event)"></button>
+          <button class="yellow" onclick="paint(event)"></button>
+          <button class="brown" onclick="paint(event)"></button>
+          <button class="violet" onclick="paint(event)"></button>
+          <button class="pink" onclick="paint(event)"></button>
+          <button class="white" onclick="paint(event)"></button>
+          <button class="black" onclick="paint(event)"></button>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="buttons">
+        PREENCHIMENTO GRADIENTE:
+        <div class="colorPaint">
+          <button class="red-white" onclick="gradient(event)"></button>
+          <button class="blue-white" onclick="gradient(event)"></button>
+          <button class="yellow-white" onclick="gradient(event)"></button>
+          <button class="brown-white" onclick="gradient(event)"></button>
+          <button class="violet-white" onclick="gradient(event)"></button>
+          <button class="pink-white" onclick="gradient(event)"></button>
+          <button class="grey-white" onclick="gradient(event)"></button>
+          <button class="black-white" onclick="gradient(event)"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapperCanvas">
+      <div class="buttons">
+        <button class="btClear" onclick="clearCanvas()">
+        </button>
+        <button class="btIn" onclick="zoom(event)">
+        </button>
+        <button class="btOut" onclick="zoom(event)">
+        </button>
+      </div>
+      <canvas id="myCanvas" width=1000 height=500></canvas>
+    </div>
+  </div>
+</body>
+</html>

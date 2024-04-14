@@ -1,0 +1,72 @@
+
+.red{
+  background-color: red;
+}
+
+.blue{
+  background-color: blue;
+}
+
+.yellow{
+  background-color: yellow;
+}
+
+.brown{
+  background-color: brown;
+}
+
+.violet{
+  background-color: violet;
+}
+
+.pink{
+  background-color: pink;
+}
+
+.white {
+  background-color: white;
+}
+
+.black{
+  background-color: black;
+}
+
+.red-white{
+  background-color: red;
+  background-image: linear-gradient(90deg, red, white);
+}
+
+.blue-white{
+  background-color: blue;
+  background-image: linear-gradient(90deg, blue, white);
+}
+
+.yellow-white{
+  background-color: yellow;
+  background-image: linear-gradient(90deg, yellow, white);
+}
+
+.brown-white{
+  background-color: brown;
+  background-image: linear-gradient(90deg, brown, white);
+}
+
+.violet-white{
+  background-color: violet;
+  background-image: linear-gradient(90deg, violet, white);
+}
+
+.pink-white{
+  background-color: pink;
+  background-image: linear-gradient(90deg, pink, white);
+}
+
+.grey-white{
+  background-color: gray;
+  background-image: linear-gradient(90deg, grey, white);
+}
+
+.black-white{
+  background-color: black; 
+  background-image: linear-gradient(90deg, black, white);
+}
