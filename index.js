@@ -31,9 +31,15 @@ function drawCircle(x = 0, y = 0) {
   const ctx = canvas.getContext('2d');
   ctx.scale(currentScale, currentScale);
 
+  let gradient = ctx.createLinearGradient(200 + x, x, 500 + y, y);
+  gradient.addColorStop(0, colors[0]);
+  gradient.addColorStop(1, colors.length > 1 ? colors[1] : colors[0]);
+
   ctx.beginPath();
   ctx.arc(400 + x, 200 + y, 150, 0, 2 * Math.PI);
   ctx.lineWidth = 4;
+  ctx.fillStyle = gradient;
+  ctx.fill();
   ctx.stroke();
 }
 
@@ -46,14 +52,14 @@ function drawRectangle(x = 0, y = 0) {
   const canvas = document.getElementById('myCanvas');
   const ctx = canvas.getContext('2d');
 
-  let gradient = ctx.createLinearGradient(200 + x, 0, 500 + y, 0);
+  ctx.scale(currentScale, currentScale);
+
+  let gradient = ctx.createLinearGradient(200 + x, x, 500 + y, y);
   gradient.addColorStop(0, colors[0]);
   gradient.addColorStop(1, colors.length > 1 ? colors[1] : colors[0]);
 
   ctx.fillStyle = gradient;
   ctx.fillRect(200 + x, 100 + y, 500, 300);
-  ctx.scale(currentScale, currentScale);
-
   ctx.lineWidth = 4;
   ctx.beginPath();
   ctx.moveTo(200 + x, 100 + y);
@@ -76,14 +82,14 @@ function drawSquare(x = 0, y = 0) {
   const canvas = document.getElementById('myCanvas');
   const ctx = canvas.getContext('2d');
 
-  let gradient = ctx.createLinearGradient(200 + x, 0, 100 + y, 0);
+  ctx.scale(currentScale, currentScale);
+
+  let gradient = ctx.createLinearGradient(300 + x, 600, 100 + y, 200);
   gradient.addColorStop(0, colors[0]);
   gradient.addColorStop(1, colors.length > 1 ? colors[1] : colors[0]);
 
   ctx.fillStyle = gradient;
   ctx.fillRect(300 + x, 100 + y, 300, 300);
-  ctx.scale(currentScale, currentScale);
-
   ctx.lineWidth = 4;
   ctx.beginPath();
   ctx.moveTo(300 + x, 100 + y);
@@ -106,6 +112,13 @@ function drawTriangle(x = 0, y = 0) {
   const canvas = document.getElementById('myCanvas');
   const ctx = canvas.getContext('2d');
   ctx.scale(currentScale, currentScale);
+
+  let gradient = ctx.createLinearGradient(400 + x, 100 + y, 0, 200);
+  gradient.addColorStop(0, colors[0]);
+  gradient.addColorStop(1, colors.length > 1 ? colors[1] : colors[0]);
+
+  ctx.fillStyle = gradient;
+  ctx.fillRect(400 + x, 100 + y, 300, 300);
 
   ctx.beginPath();
   ctx.moveTo(400 + x, 100 + y);
