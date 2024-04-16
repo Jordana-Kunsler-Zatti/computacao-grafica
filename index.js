@@ -118,7 +118,7 @@ function drawTriangle(x = 0, y = 0) {
   gradient.addColorStop(1, colors.length > 1 ? colors[1] : colors[0]);
 
   ctx.fillStyle = gradient;
-  ctx.fillRect(400 + x, 100 + y, 300, 300);
+  ctx.fill();
 
   ctx.beginPath();
   ctx.moveTo(400 + x, 100 + y);
@@ -211,29 +211,37 @@ function zoom(event) {
     square: drawSquare,
     triangle: drawTriangle,
   }[currentImage](moveToX, moveToY);
-
-  //  ctx.rotate((currentAngle * Math.PI) / 180);// rotate
 }
 
-// https://jsfiddle.net/6ZsCz/1588/
+function findCenter() {
+  const length = shape.points.length;
+  const xv = shape.points.reduce((acc, p) => acc + p.x, 0) / length;
+  const yv = shape.points.reduce((acc, p) => acc + p.y, 0) / length;
 
-/* jQuery('#giraresq').click(function () {
-    angleInDegrees = -90;
-    currentAngle += angleInDegrees;
-    drawImage();
-});
+  return { x: xv, y: yv };
+}
 
-jQuery('#girardir').click(function () {
-    angleInDegrees = 90;
-    currentAngle += angleInDegrees;
-    drawImage();
-});
 
-jQuery('#zoomIn').click(function () {
-    currentScale += zoomDelta;
-    drawImage();
-});
-jQuery('#zoomOut').click(function () {
-    currentScale -= zoomDelta;
-    drawImage();
-}); */
+function rotatePoint(px, py, centerX, centerY, degrees) {
+  let radians = degrees * Math.PI / 180;
+  
+  let cos = Math.cos(radians);
+  let sin = Math.sin(radians);
+
+  let nx = (cos * (px - centerX)) - (sin * (py - centerY)) + centerX;
+  let ny = (sin * (px - centerX)) + (cos * (py - centerY)) + centerY;
+
+  return {x: nx, y: ny};
+}
+
+function rotateShape(degrees) {
+  if (!shape || shape.name === 'circle') {
+    return;
+  }
+
+  let center = findCenter();
+  let { points, name } = shape;
+
+  const vertices = points.map(p => rotatePoint(p.x, p.y, center.x, center.y, degrees));
+  draw({ points: vertices, name });
+}
