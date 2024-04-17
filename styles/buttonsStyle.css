@@ -93,6 +93,24 @@
   transform: rotate(270deg);
 }
 
+.btRotateLeft{
+  height: 20px;
+  width: 20px;
+  background-image:url('/public/rotacaoEsquerda.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.btRotateRight{
+  height: 20px;
+  width: 20px;
+  background-image:url('/public/rotacaoDireita.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 /* color button */
 .colorPaint button{
   width: 20px;

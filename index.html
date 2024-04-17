@@ -16,16 +16,91 @@
         IMAGENS:
         <div class="images">
           <div class="wrapperImage">
-            <button class="btCircle" onclick="drawCircle()"></button>
+            <button class="btCircle" onclick="draw(event)"></button>
           </div>
           <div class="wrapperImage">
-            <button class="btSquare" onclick="drawSquare()"></button>
+            <button class="btSquare" onclick="draw(event)"></button>
           </div>
           <div class="wrapperImage">
-            <button class="btTriangle" onclick="drawTriangle()"></button>
+            <button class="btTriangle" onclick="draw(event)"></button>
           </div>
           <div class="wrapperImage">
-            <button class="btRectangle" onclick="drawRectangle()"></button>
+            <button class="btRectangle" onclick="draw(event)"></button>
+          </div>
+        </div>
+
+        <div class="point-options" id="point-options">
+          <div class="point-option" id="square-options" style="display: none;">
+            <div class="point">
+              Ponto 1:
+              <p>X: <input type="number" onblur="changePoints(event)" id="square-x-0" value="300"></p>
+              <p>Y: <input type="number" onblur="changePoints(event)" id="square-y-0" value="100"></p>
+            </div>
+            <div class="point">
+              Ponto 2:
+              <p>X: <input type="number" onblur="changePoints(event)" id="square-x-1" value="300"></p>
+              <p>Y: <input type="number" onblur="changePoints(event)" id="square-y-1" value="400"></p>
+            </div>
+            <div class="point">
+              Ponto 3:
+              <p>X: <input type="number" onblur="changePoints(event)" id="square-x-2" value="600"></p>
+              <p>Y: <input type="number" onblur="changePoints(event)" id="square-y-2" value="400"></p>
+            </div>
+            <div class="point">
+              Ponto 4:
+              <p>X: <input type="number" onblur="changePoints(event)" id="square-x-3" value="600"></p>
+              <p>Y: <input type="number" onblur="changePoints(event)" id="square-y-3" value="100"></p>
+            </div>
+          </div>
+          <div class="point-option" id="rectangle-options" style="display: none;">
+            <div class="point">
+              Ponto 1:
+              <p>X: <input type="number" onblur="changePoints(event)" id="rectangle-x-0" value="200"></p>
+              <p>Y: <input type="number" onblur="changePoints(event)" id="rectangle-y-0" value="100"></p>
+            </div>
+            <div class="point">
+              Ponto 2:
+              <p>X: <input type="number" onblur="changePoints(event)" id="rectangle-x-1" value="200"></p>
+              <p>Y: <input type="number" onblur="changePoints(event)" id="rectangle-y-1" value="400"></p>
+            </div>
+            <div class="point">
+              Ponto 3:
+              <p>X: <input type="number" onblur="changePoints(event)" id="rectangle-x-2" value="700"></p>
+              <p>Y: <input type="number" onblur="changePoints(event)" id="rectangle-y-2" value="400"></p>
+            </div>
+            <div class="point">
+              Ponto 4:
+              <p>X: <input type="number" onblur="changePoints(event)" id="rectangle-x-3" value="700"></p>
+              <p>Y: <input type="number" onblur="changePoints(event)" id="rectangle-y-3" value="100"></p>
+            </div>
+          </div>
+          <div class="point-option" id="circle-options" style="display: none;">
+            <div class="point">
+              Ponto central:
+              <p>X: <input type="number" id="circle-x" value="400" onblur="changePoints(event)"></p>
+              <p>Y: <input type="number" id="circle-y" value="200" onblur="changePoints(event)"></p>
+            </div>
+            <div class="circle-radius">
+              Raio: 
+              <p><input type="number" id="circle-radius" value="150" onblur="changePoints(event)"></p>
+            </div>
+          </div>
+          <div class="point-option" id="triangle-options" style="display: none;">
+            <div class="point">
+              Ponto 1:
+              <p>X: <input type="number" onblur="changePoints(event)" id="triangle-x-0" value="600"></p>
+              <p>Y: <input type="number" onblur="changePoints(event)" id="triangle-y-0" value="400"></p>
+            </div>
+            <div class="point">
+              Ponto 2:
+              <p>X: <input type="number" onblur="changePoints(event)" id="triangle-x-1" value="200"></p>
+              <p>Y: <input type="number" onblur="changePoints(event)" id="triangle-y-1" value="400"></p>
+            </div>
+            <div class="point">
+              Ponto 3:
+              <p>X: <input type="number" onblur="changePoints(event)" id="triangle-x-2" value="400"></p>
+              <p>Y: <input type="number" onblur="changePoints(event)" id="triangle-y-2" value="100"></p>
+            </div>
           </div>
         </div>
       </div>
@@ -41,6 +116,12 @@
             <button class="btRight" onclick="move(event)"></button>
           </div>
           <button class="btDown" onclick="move(event)"></button>
+        </div>
+
+        <div class="rotation">
+          <button class="btRotateLeft" onclick="rotate(event)"></button>
+          <input id="degrees" type="number" value="45">
+          <button class="btRotateRight" onclick="rotate(event)"></button>
         </div>
       </div>
 
@@ -79,7 +160,7 @@
 
     <div class="wrapperCanvas">
       <div class="buttons">
-        <button class="btClear" onclick="clearCanvas()">
+        <button class="btClear" onclick="clearAllCanvas()">
         </button>
         <button class="btIn" onclick="zoom(event)">
         </button>

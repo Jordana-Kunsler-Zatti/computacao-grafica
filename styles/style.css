@@ -3,9 +3,36 @@
   width: 98vw;
   height: 98vh;
   display: flex;
+  flex-direction: row;
   gap: 30px;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 900px) {
+  .content{
+    width: 98vw;
+    height: 98vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: start;
+    align-items: start;
+    padding: 0px 10px;
+  }
+
+  .wrapperCanvas{
+    display: flex !important;
+    align-items: start !important;
+    padding: 0px 10px;
+  }
+
+  .wrapperCanvas canvas{
+    max-width: 90%;
+    max-height: 250px;
+    border: 1px solid black;
+  }
+
 }
 
 hr{
@@ -44,6 +71,17 @@ button{
   align-items: center;
 }
 
+.rotation{
+  display: flex;
+  height: 20px;
+  gap: 10px;
+  justify-content: center;
+}
+
+.rotation input{
+  width: 40px;
+}
+
 .images{
   display: flex;
   align-items: center;
@@ -54,4 +92,28 @@ button{
 
 .wrapperImage{
   padding: 5px;
+}
+
+.point-options {
+  margin-top: 5px;
+}
+
+.point-options .point-option {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+
+}
+
+.point-options .point-option .point {
+  display: flex;
+  flex-direction: column;
+}
+
+.point-options .point-option input {
+  max-width: 50px;
+}
+
+.point-options .point-option p {
+  margin: 5px
 }
