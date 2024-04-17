@@ -330,6 +330,18 @@ function changePoints(event) {
   const newValue = event.target;
   const image = newValue.id.split('-');
 
+  if (newValue.value > 1000 && image.includes('x')) {
+    document.getElementById(newValue.id).value = 1000;
+    newValue.value = 1000;
+    alert('O valor máximo para x é 1000');
+  }
+
+  if (newValue.value > 500 && image.includes('y')) {
+    document.getElementById(newValue.id).value = 500;
+    newValue.value = 500;
+    alert('O valor máximo para y é 500');
+  }
+
   switch (image[0]) {
     case 'circle':
       currentImage[image[1]] = newValue.value;
