@@ -37,7 +37,6 @@ function clearAllCanvas() {
 
   clearCanvas();
   clearMove();
-  clearScale();
   currentImage = null;
 }
 
@@ -52,10 +51,6 @@ function clearCanvas() {
 function clearMove() {
   moveToX = 0;
   moveToY = 0;
-}
-
-function clearScale() {
-  currentScale = 1;
 }
 
 function color() {
@@ -80,8 +75,6 @@ function color() {
 // functions to draw images
 function drawCircle() {
   const { x, y, radius } = currentImage;
-
-  console.log(currentImage);
 
   const canvas = document.getElementById('myCanvas');
   const ctx = canvas.getContext('2d');
@@ -158,7 +151,6 @@ function draw(event) {
 
   clearCanvas();
   clearMove();
-  clearScale();
 
   return functionsDraw[image[1].toLowerCase()]();
 }
@@ -167,7 +159,6 @@ function draw(event) {
 function move(event) {
   if (!currentImage) return alert('É necessário escolher uma imagem antes de tentar movê-la');
 
-  clearScale();
   clearCanvas();
 
   const movement = event.target.className;
@@ -206,16 +197,12 @@ function move(event) {
 function paint(event) {
   if (!currentImage) return alert('É necessário escolher uma imagem antes de escolher a cor');
 
-  clearScale();
-
   colors = [event.target.className];
   return functionsDraw[currentImage.name]();
 }
 
 function gradient(event) {
   if (!currentImage) return alert('É necessário escolher uma imagem antes de escolher a cor');
-
-  clearScale();
 
   colors = [...event.target.className.split('-')];
   return functionsDraw[currentImage.name]();
@@ -251,22 +238,22 @@ function zoom(event) {
       break;
   }
 
-  let { points } = currentImage;
-
-  const length = points.length;
-  const centerX = points.reduce((acc, p) => acc + p.x, 0) / length;
-  const centerY = points.reduce((acc, p) => acc + p.y, 0) / length;
-  let center = { x: centerX, y: centerY };
-
   if (currentImage.name === 'circle')
     currentImage = {
       ...currentImage,
       radius: currentImage.radius * currentScale,
     };
-  else
+  else {
+    let { points } = currentImage;
+
+    const length = points.length;
+    const centerX = points.reduce((acc, p) => acc + p.x, 0) / length;
+    const centerY = points.reduce((acc, p) => acc + p.y, 0) / length;
+    let center = { x: centerX, y: centerY };
     currentImage.points = points.map((point) =>
       zoomPoint(point.x, point.y, center.x, center.y, currentScale)
     );
+  }
 
   return functionsDraw[currentImage.name]();
 }
@@ -296,7 +283,6 @@ function rotate(event) {
 
   if (event.target.className === 'btRotateLeft') degrees = -degrees;
 
-  clearScale();
   clearMove();
   clearCanvas();
 
@@ -344,12 +330,12 @@ function changePoints(event) {
 
   switch (image[0]) {
     case 'circle':
-      currentImage[image[1]] = newValue.value;
+      currentImage[image[1]] = Number(newValue.value);
       break;
     case 'square':
     case 'rectangle':
     case 'triangle':
-      currentImage.points[image[2]][image[1]] = newValue.value;
+      currentImage.points[image[2]][image[1]] = Number(newValue.value);
       break;
   }
 
